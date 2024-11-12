@@ -1,4 +1,4 @@
-import telebot, dotenv, os, time, logging
+import telebot, dotenv, os, time, logging, shutil
 
 DRIVE_LINK  = ""
 
@@ -10,7 +10,10 @@ bot = telebot.TeleBot(token)
 
 def upload(path="media/image.png"):
     logging.info(f"Started upload for file at {path}...")
-    time.sleep(4)
+
+    dest = path.replace("media", "album", 1)
+    shutil.copy(path, dest)
+
     logging.info("Upload successful!")
     return 0
 
