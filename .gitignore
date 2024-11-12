@@ -1,4 +1,5 @@
 .env
 photobot.log
 media/*
+album/*
 .idea
