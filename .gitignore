@@ -1,0 +1,5 @@
+.env
+photobot.log
+media/*
+.idea
+client_secrets.json
