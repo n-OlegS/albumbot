@@ -26,12 +26,19 @@ def upload(path="media/image.png"):
 
 @bot.message_handler(commands=["start", "?"])
 def start_message(message: telebot.types.Message):
-    bot.reply_to(message, "Присылайте фотографию для добавления в альбом.")
+    bot.reply_to(message, "Присылайте фотографию для добавления в альбом.\n\nКоманды:\n\t/link - получить ссылку на альбом\n\t/stat - узнать количество загруженных фоток")
 
 
 @bot.message_handler(commands=["link"])
 def display_types(message: telebot.types.Message):
     bot.reply_to(message, f"Ссылка на альбом:\n{DRIVE_LINK}")
+
+
+@bot.message_handler(commands=["stat"])
+def get_stats(message: telebot.types.Message):
+    count = len(os.listdir('album/'))
+
+    bot.reply_to(message, f"На данный момент загружено {count} фоток.")
 
 
 @bot.message_handler(content_types=["photo"])
