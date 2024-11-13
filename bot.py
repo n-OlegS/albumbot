@@ -12,6 +12,12 @@ def upload(path="media/image.png"):
     logging.info(f"Started upload for file at {path}...")
 
     dest = path.replace("media", "album", 1)
+
+    sl = dest.rfind("/")
+    dot = dest.rfind(".")
+
+    dest = dest[:sl + 1] + time.strftime("%d-%m-%Y_%H-%M", time.localtime()) + dest[dot:]
+
     shutil.copy(path, dest)
 
     logging.info("Upload successful!")
