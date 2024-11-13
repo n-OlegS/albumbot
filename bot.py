@@ -1,4 +1,4 @@
-import telebot, dotenv, os, time, logging, shutil
+import telebot, dotenv, os, time, logging, shutil, datetime
 
 DRIVE_LINK  = ""
 
@@ -16,7 +16,7 @@ def upload(path="media/image.png"):
     sl = dest.rfind("/")
     dot = dest.rfind(".")
 
-    dest = dest[:sl + 1] + time.strftime("%d-%m-%Y_%H-%M", time.localtime()) + dest[dot:]
+    dest = dest[:sl + 1] + datetime.datetime.now().strftime("%d-%m-%Y_%H-%M-%S.%f")[:-3] + dest[dot:]
 
     shutil.copy(path, dest)
 
