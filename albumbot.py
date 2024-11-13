@@ -1,6 +1,6 @@
 import telebot, dotenv, os, time, logging, shutil, datetime
 
-DRIVE_LINK  = ""
+DRIVE_LINK  = "На данный момент ссылки нет..."
 
 dotenv.load_dotenv()
 token = os.getenv('TOKEN')
