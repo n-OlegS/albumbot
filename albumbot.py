@@ -38,7 +38,7 @@ def display_types(message: telebot.types.Message):
 def get_stats(message: telebot.types.Message):
     count = len(os.listdir('album/'))
 
-    bot.reply_to(message, f"На данный момент загружено {count} фоток.")
+    bot.reply_to(message, f"На данный момент загружено {count} фото.")
 
 
 @bot.message_handler(content_types=["photo"])
